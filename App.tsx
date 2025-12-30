@@ -1,8 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { SERVICES } from './constants';
-import DataVisual from './components/DataVisual';
-import Assistant from './components/Assistant';
 import CycleVisual from './components/CycleVisual';
 import Archive from './components/Archive';
 import PortfolioPage from './components/PortfolioPage';
@@ -10,11 +8,33 @@ import PortfolioPage from './components/PortfolioPage';
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [view, setView] = useState<'home' | 'portfolio'>('home');
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMouseMoving, setIsMouseMoving] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      setIsMouseMoving(true);
+
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setIsMouseMoving(false);
+      }, 2400); // 1.2s * 2 = 2.4s (파도가 두 번 치도록)
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      clearTimeout(timeout);
+    };
   }, []);
 
   const goToHome = () => setView('home');
@@ -110,6 +130,23 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Mouse Follower */}
+      <div
+        className="fixed pointer-events-none z-[100] transition-all duration-700 ease-out"
+        style={{
+          left: `${mousePos.x}px`,
+          top: `${mousePos.y}px`,
+          transform: 'translate(5px, 10px)'
+        }}
+      >
+        <span className="text-[10px] font-bold text-slate-900/40 whitespace-nowrap select-none">
+          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>동</span>
+          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>글</span>
+          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>동</span>
+          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>글</span>
+        </span>
+      </div>
+
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -125,7 +162,6 @@ const App: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <DataVisual />
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 font-outfit">
             We turn data into stories,<br />
@@ -157,9 +193,9 @@ const App: React.FC = () => {
               <span className="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-4 block">The Nexus Cycle</span>
               <h2 className="text-4xl font-bold text-slate-900 mb-6">데이터와 내러티브의 순환 구조</h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                "데이터를 이해하는 사람"도 많고, "스토리를 잘 만드는 사람"도 많지만, 
-                그 둘을 연결하여 **지속 가능한 구조**를 설계할 수 있는 곳은 드뭅니다. 
-                동글 데이터랩은 데이터(Data), 이야기(Story), 행동(Action)이 끊임없이 순환하는 생태계를 만듭니다.
+                데이터를 이해하는 사람도 많고, 스토리를 잘 만드는 사람도 많지만, 
+                그 둘을 연결하여 지속 가능한 구조를 설계할 수 있는 곳은 드뭅니다. 
+                동글동글 데이터랩은 데이터(Data), 이야기(Story), 행동(Action)이 끊임없이 순환하는 생태계를 만듭니다.
               </p>
               <div className="space-y-4">
                 {[
@@ -194,7 +230,7 @@ const App: React.FC = () => {
               <span className="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-4 block">Our Expertise</span>
               <h2 className="text-4xl font-bold text-slate-900 mb-6 font-outfit">성혜승, the Nexus Designer</h2>
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                “데이터를 이야기로 만들고, 이야기를 다시 데이터 구조로 설계할 수 있는 드문 교차점에 있습니다.”
+                “데이터를 이야기로 만들고, 이야기를 다시 데이터 구조로 설계할 수 있는 교차점에 있습니다.”
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600">
                 <div className="space-y-4">
@@ -253,10 +289,6 @@ const App: React.FC = () => {
 
           <div id="archive">
             <Archive onExplore={goToPortfolio} />
-          </div>
-          
-          <div className="mt-12 bg-slate-50 rounded-3xl p-2">
-             <Assistant />
           </div>
         </div>
       </section>

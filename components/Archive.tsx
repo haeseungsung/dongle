@@ -9,7 +9,7 @@ const Archive: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
         <div>
           <span className="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-4 block">Archive</span>
           <h2 className="text-4xl font-bold text-slate-900 font-outfit">Data Narrative Archive</h2>
-          <p className="text-slate-500 mt-4 max-w-lg">차가운 데이터가 따뜻한 이야기를 만나 변화를 만든 기록들입니다.</p>
+          <p className="text-slate-500 mt-4 max-w-lg">데이터가 이야기를 만나 변화를 만든 기록들입니다.</p>
         </div>
         <button 
           onClick={onExplore}
