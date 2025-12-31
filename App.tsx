@@ -8,33 +8,11 @@ import PortfolioPage from './components/PortfolioPage';
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [view, setView] = useState<'home' | 'portfolio'>('home');
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isMouseMoving, setIsMouseMoving] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      setIsMouseMoving(true);
-
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        setIsMouseMoving(false);
-      }, 2400); // 1.2s * 2 = 2.4s (파도가 두 번 치도록)
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      clearTimeout(timeout);
-    };
   }, []);
 
   const goToHome = () => setView('home');
@@ -63,17 +41,12 @@ const App: React.FC = () => {
             <h2 className="text-5xl font-bold mb-8 font-outfit text-white">Let's connect your loop.</h2>
             <p className="text-slate-400 text-xl leading-relaxed mb-12">
               이야기에서 출발해도 좋고, 데이터에서 출발해도 좋습니다.<br />
-              함께 더 나은 의사결정과 변화를 위한 지도를 그려봅시다.
+              함께 더 나은 의사결정과 변화를 위한 지도를 그려보고 싶습니다.
             </p>
             <div className="space-y-6 text-white">
               <div>
                 <span className="text-xs uppercase font-bold text-slate-500 tracking-widest block mb-2">Email Us</span>
-                <a href="mailto:hello@dongledatalab.com" className="text-2xl font-medium hover:text-indigo-400 transition-colors">hello@dongledatalab.com</a>
-              </div>
-              <div className="flex gap-6 pt-4">
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">LinkedIn</a>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">Instagram</a>
-                <a href="#" className="text-slate-400 hover:text-white transition-colors">Substack</a>
+                <a href="mailto:hello@dongledatalab.com" className="text-2xl font-medium hover:text-indigo-400 transition-colors">haeseung.sung@gmail.com</a>
               </div>
             </div>
           </div>
@@ -82,7 +55,7 @@ const App: React.FC = () => {
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-500 uppercase">이름 / 조직</label>
-                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 text-white" placeholder="홍길동" />
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-indigo-500 text-white" placeholder="김동글" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-slate-500 uppercase">연락처</label>
@@ -102,9 +75,8 @@ const App: React.FC = () => {
         <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
           <div className="flex items-center gap-2">
             <span className="font-outfit font-bold text-white">Dongle Data Lab</span>
-            <span>© 2024 All rights reserved.</span>
+            <span>© 2025 All rights reserved.</span>
           </div>
-          <p>Based on Neighborhood Nexus Model.</p>
         </div>
       </div>
     </footer>
@@ -130,23 +102,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Mouse Follower */}
-      <div
-        className="fixed pointer-events-none z-[100] transition-all duration-700 ease-out"
-        style={{
-          left: `${mousePos.x}px`,
-          top: `${mousePos.y}px`,
-          transform: 'translate(5px, 10px)'
-        }}
-      >
-        <span className="text-[10px] font-bold text-slate-900/40 whitespace-nowrap select-none">
-          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>동</span>
-          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>글</span>
-          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>동</span>
-          <span className={isMouseMoving ? 'wave-letter' : 'inline-block'}>글</span>
-        </span>
-      </div>
-
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -168,7 +123,7 @@ const App: React.FC = () => {
             <span className="text-slate-400">and stories back into data.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-xl text-slate-600 leading-relaxed mb-10">
-            동글 데이터랩은 복잡한 데이터를 사람들이 이해하고 말할 수 있는 이야기로 만들고,<br className="hidden md:block" />
+            동글동글 데이터랩은 데이터 너머의 이야기를 발굴하고,<br className="hidden md:block" />
             그 이야기가 다시 측정되고 쌓이는 데이터 구조로 이어지도록 설계합니다.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -193,15 +148,16 @@ const App: React.FC = () => {
               <span className="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-4 block">The Nexus Cycle</span>
               <h2 className="text-4xl font-bold text-slate-900 mb-6">데이터와 내러티브의 순환 구조</h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                데이터를 이해하는 사람도 많고, 스토리를 잘 만드는 사람도 많지만, 
-                그 둘을 연결하여 지속 가능한 구조를 설계할 수 있는 곳은 드뭅니다. 
+                데이터를 이해하는 사람도, 스토리를 잘 만드는 사람도 많지만, 
+                그 둘을 연결하여 지속 가능한 구조를 설계할 수 있는 곳은 드뭅니다. <br></br><br></br>
                 동글동글 데이터랩은 데이터(Data), 이야기(Story), 행동(Action)이 끊임없이 순환하는 생태계를 만듭니다.
               </p>
               <div className="space-y-4">
                 {[
                   "의사결정 맥락이 담긴 데이터",
                   "숫자 너머의 이야기",
-                  "변화를 이끌어내는 인사이트, 그리고 이 변화를 다시 측정하는 데이터"
+                  "변화를 이끌어내는 인사이트",
+                  "그리고 이 변화를 다시 측정하는 데이터"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 text-slate-700">
                     <div className="w-5 h-5 bg-indigo-100 rounded-full flex items-center justify-center">
@@ -228,9 +184,9 @@ const App: React.FC = () => {
             </div>
             <div className="flex-1">
               <span className="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-4 block">Our Expertise</span>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6 font-outfit">성혜승, the Nexus Designer</h2>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6 font-outfit">동글, the Nexus Designer</h2>
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                “데이터를 이야기로 만들고, 이야기를 다시 데이터 구조로 설계할 수 있는 교차점에 있습니다.”
+                “단순 개발을 넘어, 데이터가 이야기로 흐르는 - 또, 이야기를 데이터로 수집하는 시스템을 구축합니다.”
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600">
                 <div className="space-y-4">
@@ -250,9 +206,9 @@ const App: React.FC = () => {
       {/* Services Section */}
       <section id="services" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4 font-outfit">Representative Services</h2>
-            <p className="text-slate-500 max-w-xl mx-auto">우리는 데이터가 필요한 모든 단계에 최적화된 솔루션을 제공합니다.</p>
+          <div className="mb-16">
+            <span className="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-4 block">Primary Services</span>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4 font-outfit">동글이 제공하는 서비스</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {SERVICES.map((service) => (

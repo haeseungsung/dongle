@@ -5,11 +5,11 @@ export const SERVICES: ServicePackage[] = [
   {
     id: 'data-to-story',
     title: 'DATA → STORY',
-    subtitle: '보는 순간 이해되는 데이터 시각화',
-    description: '복잡한 데이터를 사람들이 이해하고 말할 수 있는 이야기로 만듭니다. 단순 시각화를 넘어 의사결정 맥락과 감정선을 담습니다.',
+    subtitle: '데이터 시각화 & 웹 대쉬보드 개발',
+    description: '복잡한 원천 데이터를 누구나 직관적으로 이해할 수 있는 인터랙티브 대시보드와 웹 프로덕트로 전환합니다. 단순한 차트를 넘어 의사결정의 내러티브를 설계합니다.',
     targets: ['공공기관', '연구소', '대학', '임팩트 스타트업'],
     features: ['데이터 분석 및 시각화', '공간/사회 맥락 해석', '스토리라인 설계'],
-    deliverables: ['Narrative Data Report', 'Explorable Visualization', 'Presentation Slides'],
+    deliverables: ['Custom Web Dashboard', 'Data Narrative Web Site', 'Real-time Monitoring Tool'],
     icon: '📊'
   },
   {
@@ -25,11 +25,11 @@ export const SERVICES: ServicePackage[] = [
   {
     id: 'nexus-lab',
     title: 'NEXUS LAB',
-    subtitle: '데이터와 커뮤니티를 잇는 파트너십',
-    description: '데이터-커뮤니티-행동을 잇는 지속 가능한 파트너십을 제안합니다.',
+    subtitle: '데이터 기반 커뮤니티 파트너십',
+    description: '데이터-스토리-행동을 잇는 장기적인 기술 파트너십을 맺습니다. 지속적인 데이터 업그레이드와 프로덕트 유지보수를 지원합니다.',
     targets: ['도시 재생 프로젝트', '민관 협력 조직', '대학 연구팀'],
     features: ['지속적 데이터 수집/분석', '인사이트 발굴', '피드백 루프 설계'],
-    deliverables: ['Quarterly Insight Report', 'Community Dashboard', 'Program Optimization'],
+    deliverables: ['Quarterly Insight Report', 'Community Dashboard', 'Product Maintenance'],
     icon: '🤝'
   }
 ];
@@ -59,16 +59,16 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
     philosophy: '지식의 가치는 축적이 아니라 연결에 있습니다. 파편화된 연구 성과들을 하나의 이야기로 엮어낼 때, 비로소 연구실의 정체성이 완성됩니다.',
     link: 'https://bonwookoo.github.io/bonwookoo/'
   },
-  {
-    id: '3',
-    title: '친환경 브랜드의 진정성 수치화',
-    category: 'Startup',
-    summary: '브랜드의 친환경 메시지가 실제 고객의 행동 데이터로 어떻게 이어지는지 측정 가능한 구조로 설계했습니다.',
-    date: '2023.09',
-    tags: ['브랜딩', '지표 설계', '전략'],
-    thumbnail: '🌿',
-    intent: '그린워싱 논란을 방지하고 브랜드가 주장하는 사회적 가치가 실제 어떤 임팩트로 변환되는지 추적 가능한 대시보드와 지표 체계를 구축했습니다.',
-    philosophy: '측정되지 않는 가치는 설득력을 갖기 어렵습니다. 브랜드의 철학이 데이터라는 언어를 입을 때, 비로소 시장과 진정성 있는 소통이 가능해집니다.',
-    link: 'https://example.com/project-3'
+ {
+    id: 'atlanta-nexus',
+    title: 'Atlanta Neighborhood Nexus: 33N Data Blog',
+    category: 'Public',
+    summary: '미국 애틀랜타 지역의 사회, 경제, 문화 데이터를 분석하여 깊이 있는 인사이트를 담은 데이터 스토리텔링 블로그 시리즈를 집필했습니다.',
+    date: '2023.08',
+    tags: ['데이터 스토리텔링', '지역 분석', '내러티브 집필'],
+    thumbnail: '🇺🇸',
+    intent: '미국 애틀랜타 지역 사회가 직면한 복잡한 문제들을 시민들이 쉽게 이해할 수 있는 내러티브로 전환하는 것이 목표였습니다. 파편화된 지역 데이터를 연결하여 도시의 변화와 사회적 불평등을 시각화하고 설명했습니다.',
+    philosophy: '데이터는 지역 사회의 목소리를 대변하는 가장 강력한 증거입니다. 올바른 이야기와 결합될 때 데이터는 단순한 통계에서 공동체의 행동을 이끄는 지도로 진화합니다.',
+    link: 'https://33n.atlantaregional.com/author/haeseungsung'
   }
 ];

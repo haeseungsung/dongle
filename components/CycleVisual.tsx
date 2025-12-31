@@ -3,7 +3,7 @@ import React from 'react';
 
 const CycleVisual: React.FC = () => {
   return (
-    <div className="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center">
+    <div className="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center p-8 md:p-0">
       {/* Background Circle Path */}
       <svg className="absolute w-full h-full -rotate-90" viewBox="0 0 100 100">
         <circle
@@ -37,41 +37,41 @@ const CycleVisual: React.FC = () => {
 
       {/* Nodes */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
-        <div className="bg-white border-2 border-indigo-600 shadow-xl rounded-2xl px-6 py-4 flex flex-col items-center transition-transform group-hover:scale-110">
-          <span className="text-2xl mb-1">📉</span>
-          <span className="font-bold text-slate-900">DATA</span>
-          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Collection</span>
+        <div className="bg-white border-2 border-indigo-600 shadow-xl rounded-xl md:rounded-2xl px-3 py-2 md:px-6 md:py-4 flex flex-col items-center transition-transform group-hover:scale-110">
+          <span className="text-lg md:text-2xl mb-0.5 md:mb-1">📉</span>
+          <span className="font-bold text-slate-900 text-xs md:text-base">DATA</span>
+          <span className="text-[8px] md:text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Collection</span>
         </div>
       </div>
 
       <div className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 group">
-        <div className="bg-white border border-slate-200 shadow-lg rounded-2xl px-6 py-4 flex flex-col items-center transition-transform group-hover:scale-110">
-          <span className="text-2xl mb-1">📖</span>
-          <span className="font-bold text-slate-900">STORY</span>
-          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Narrative</span>
+        <div className="bg-white border border-slate-200 shadow-lg rounded-xl md:rounded-2xl px-3 py-2 md:px-6 md:py-4 flex flex-col items-center transition-transform group-hover:scale-110">
+          <span className="text-lg md:text-2xl mb-0.5 md:mb-1">📖</span>
+          <span className="font-bold text-slate-900 text-xs md:text-base">STORY</span>
+          <span className="text-[8px] md:text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Narrative</span>
         </div>
       </div>
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 group">
-        <div className="bg-white border border-slate-200 shadow-lg rounded-2xl px-6 py-4 flex flex-col items-center transition-transform group-hover:scale-110">
-          <span className="text-2xl mb-1">⚡</span>
-          <span className="font-bold text-slate-900">ACTION</span>
-          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Decision</span>
+        <div className="bg-white border border-slate-200 shadow-lg rounded-xl md:rounded-2xl px-3 py-2 md:px-6 md:py-4 flex flex-col items-center transition-transform group-hover:scale-110">
+          <span className="text-lg md:text-2xl mb-0.5 md:mb-1">⚡</span>
+          <span className="font-bold text-slate-900 text-xs md:text-base">ACTION</span>
+          <span className="text-[8px] md:text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Decision</span>
         </div>
       </div>
 
       <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 group">
-        <div className="bg-indigo-600 text-white shadow-xl rounded-2xl px-6 py-4 flex flex-col items-center transition-transform group-hover:scale-110">
-          <span className="text-2xl mb-1">🔄</span>
-          <span className="font-bold">LOOP</span>
-          <span className="text-[10px] opacity-70 uppercase font-bold tracking-tighter">Feedback</span>
+        <div className="bg-indigo-600 text-white shadow-xl rounded-xl md:rounded-2xl px-3 py-2 md:px-6 md:py-4 flex flex-col items-center transition-transform group-hover:scale-110">
+          <span className="text-lg md:text-2xl mb-0.5 md:mb-1">🔄</span>
+          <span className="font-bold text-xs md:text-base">LOOP</span>
+          <span className="text-[8px] md:text-[10px] opacity-70 uppercase font-bold tracking-tighter">Feedback</span>
         </div>
       </div>
 
       {/* Center Label */}
       <div className="text-center">
-        <div className="text-3xl font-black text-slate-900 font-outfit">NEXUS</div>
-        <div className="text-[10px] text-indigo-600 font-bold tracking-widest uppercase">The Loop</div>
+        <div className="text-2xl md:text-3xl font-black text-slate-900 font-outfit">NEXUS</div>
+        <div className="text-[8px] md:text-[10px] text-indigo-600 font-bold tracking-widest uppercase">The Loop</div>
       </div>
 
       <style>{`
