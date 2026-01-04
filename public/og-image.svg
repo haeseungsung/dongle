@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#ffffff"/>
+
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+
+  <!-- Decorative Circle -->
+  <circle cx="150" cy="150" r="80" fill="#6366f1" opacity="0.1"/>
+  <circle cx="1050" cy="480" r="100" fill="#a5b4fc" opacity="0.1"/>
+
+  <!-- Main Text -->
+  <text x="600" y="280" font-family="'Pretendard', sans-serif" font-size="96" font-weight="900" fill="#0f172a" text-anchor="middle">
+    동글동글 데이터 랩
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="360" font-family="'Outfit', sans-serif" font-size="36" font-weight="400" fill="#64748b" text-anchor="middle">
+    We turn data into stories, and stories back into data.
+  </text>
+
+  <!-- Badge -->
+  <rect x="500" y="420" width="200" height="50" rx="25" fill="#6366f1"/>
+  <text x="600" y="453" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">
+    NEXUS LAB
+  </text>
+</svg>

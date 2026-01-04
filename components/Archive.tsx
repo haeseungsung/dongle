@@ -22,8 +22,12 @@ const Archive: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {ARCHIVE_ITEMS.map((item) => (
           <div key={item.id} className="group cursor-pointer" onClick={onExplore}>
-            <div className="aspect-[16/10] bg-slate-50 rounded-2xl mb-6 overflow-hidden border border-slate-100 flex items-center justify-center text-6xl group-hover:bg-slate-100 transition-all duration-500">
-              <span className="group-hover:scale-110 transition-transform duration-500">{item.thumbnail}</span>
+            <div className="aspect-[16/10] bg-slate-50 rounded-2xl mb-6 overflow-hidden border border-slate-100 group-hover:border-slate-200 transition-all duration-500">
+              <img
+                src={item.thumbnail}
+                alt={item.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
             <div className="flex items-center gap-2 mb-3">
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 uppercase">

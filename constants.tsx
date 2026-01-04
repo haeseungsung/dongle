@@ -42,7 +42,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
     summary: '일상의 사진을 픽셀 클러스터링으로 분석하여 정량화된 컬러 데이터 영수증으로 발행하는 실험적 프로젝트.',
     date: '2023.12',
     tags: ['이미지 분석', '컬러 클러스터링', '데이터 시각화'],
-    thumbnail: '🧾',
+    thumbnail: '/photo-receipt-preview.jpg',
     intent: '한 해를 돌아보며 "사진을 영수증처럼 정산받고 싶다"는 클라이언트의 감성적 요구를 기술적 분석으로 구현했습니다. 사용자의 사진첩 속 픽셀들을 컬러 클러스터링 알고리즘으로 분석하여, 가장 지배적인 색상들을 영수증 항목처럼 리스트화했습니다.',
     philosophy: '데이터는 감정을 수치화하는 도구가 아니라, 우리가 미처 발견하지 못한 기억의 패턴을 시각적으로 증명해주는 거울입니다.',
     link: 'https://photo-receipt.vercel.app/'
@@ -54,7 +54,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
     summary: '도시공학 연구실의 학술적 궤적과 핵심 성과를 조망할 수 있는 내러티브 중심의 아카이브 웹사이트 설계 및 디자인.',
     date: '2024.02',
     tags: ['연구소 UI/UX', '학술 아카이빙', '데이터 구조화'],
-    thumbnail: '🏛️',
+    thumbnail: '/yonsei-lab-preview.jpg',
     intent: '연구실에서 출판한 수많은 논문들을 단순한 리스트로 나열하는 기존의 관행을 깨고 싶었습니다. 연구 주제의 흐름과 연구실이 지향하는 학술적 가치를 한눈에 조망(Overview)할 수 있는 직관적인 정보 구조를 설계했습니다.',
     philosophy: '지식의 가치는 축적이 아니라 연결에 있습니다. 파편화된 연구 성과들을 하나의 이야기로 엮어낼 때, 비로소 연구실의 정체성이 완성됩니다.',
     link: 'https://bonwookoo.github.io/bonwookoo/'
@@ -66,7 +66,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
     summary: '미국 애틀랜타 지역의 사회, 경제, 문화 데이터를 분석하여 깊이 있는 인사이트를 담은 데이터 스토리텔링 블로그 시리즈를 집필했습니다.',
     date: '2023.08',
     tags: ['데이터 스토리텔링', '지역 분석', '내러티브 집필'],
-    thumbnail: '🇺🇸',
+    thumbnail: '/atlanta-nexus-preview.jpg',
     intent: '미국 애틀랜타 지역 사회가 직면한 복잡한 문제들을 시민들이 쉽게 이해할 수 있는 내러티브로 전환하는 것이 목표였습니다. 파편화된 지역 데이터를 연결하여 도시의 변화와 사회적 불평등을 시각화하고 설명했습니다.',
     philosophy: '데이터는 지역 사회의 목소리를 대변하는 가장 강력한 증거입니다. 올바른 이야기와 결합될 때 데이터는 단순한 통계에서 공동체의 행동을 이끄는 지도로 진화합니다.',
     link: 'https://33n.atlantaregional.com/author/haeseungsung'

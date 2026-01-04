@@ -7,7 +7,10 @@ import PortfolioPage from './components/PortfolioPage';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [view, setView] = useState<'home' | 'portfolio'>('home');
+  const [view, setView] = useState<'home' | 'portfolio'>(() => {
+    // 초기 URL 확인
+    return window.location.pathname === '/portfolio' ? 'portfolio' : 'home';
+  });
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -15,8 +18,26 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const goToHome = () => setView('home');
-  const goToPortfolio = () => setView('portfolio');
+  useEffect(() => {
+    // 브라우저 뒤로가기/앞으로가기 처리
+    const handlePopState = () => {
+      setView(window.location.pathname === '/portfolio' ? 'portfolio' : 'home');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const goToHome = () => {
+    setView('home');
+    window.history.pushState({}, '', '/');
+    window.scrollTo(0, 0);
+  };
+
+  const goToPortfolio = () => {
+    setView('portfolio');
+    window.history.pushState({}, '', '/portfolio');
+    window.scrollTo(0, 0);
+  };
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
