@@ -87,7 +87,7 @@ const ProjectCard: React.FC<{ item: ArchiveItem; isPlaceholder?: boolean; rowInd
         ) : (
           <>
             <img
-              src={item.thumbnail}
+              src={item.portfolioImage || item.thumbnail}
               alt={item.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
